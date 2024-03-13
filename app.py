@@ -1,77 +1,43 @@
 
-# import streamlit as st
+import streamlit as st
+import random
+import time
 
-# st.title('hi')
+st.title("Simple chat")
 
-import React, { useState, useEffect } from 'react';
+# # Initialize chat history
+# if "messages" not in st.session_state:
+#     st.session_state.messages = []
 
-// 채팅 로직을 위한 커스텀 훅
-function useChat() {
-    const [messages, setMessages] = useState([]);
-    const [ws, setWs] = useState(null);
+# # Display chat messages from history on app rerun
+# for message in st.session_state.messages:
+#     with st.chat_message(message["role"]):
+#         st.markdown(message["content"])
 
-    useEffect(() => {
-        // WebSocket 연결
-        const websocket = new WebSocket('ws://your-websocket-server.com');
-        setWs(websocket);
+# # Accept user input
+# if prompt := st.chat_input("What is up?"):
+#     # Display user message in chat message container
+#     with st.chat_message("user"):
+#         st.markdown(prompt)
+#     # Add user message to chat history
+#     st.session_state.messages.append({"role": "user", "content": prompt})
 
-        websocket.onmessage = (event) => {
-            // 서버로부터 메시지를 받으면 messages 상태 업데이트
-            const message = JSON.parse(event.data);
-            setMessages((prevMessages) => [...prevMessages, message]);
-        };
+# Streamed response emulator
+def response_generator():
+    response = random.choice(
+        [
+            "Hello there! How can I assist you today?",
+            "Hi, human! Is there anything I can help you with?",
+            "Do you need help?",
+        ]
+    )
+    for word in response.split():
+        yield word + " "
+        time.sleep(0.05)
 
-        // 컴포넌트 언마운트 시 WebSocket 연결 종료
-        return () => {
-            websocket.close();
-        };
-    }, []);
+# Display assistant response in chat message container
+with st.chat_message("assistant"):
+    response = st.write_stream(response_generator())
 
-    const sendMessage = (message) => {
-        // 서버로 메시지 전송
-        if (ws) {
-            ws.send(JSON.stringify(message));
-        }
-    };
-
-    return { messages, sendMessage };
-}
-
-// 채팅 UI 컴포넌트
-function Chat() {
-    const { messages, sendMessage } = useChat();
-    const [newMessage, setNewMessage] = useState('');
-
-    const handleNewMessageChange = (event) => {
-        setNewMessage(event.target.value);
-    };
-
-    const handleSendMessage = () => {
-        sendMessage({ text: newMessage });
-        setNewMessage('');
-    };
-
-    return (
-        <div>
-            <h2>Chat</h2>
-            <div className="messages">
-                {messages.map((message, index) => (
-                    <div key={index}>{message.text}</div>
-                ))}
-            </div>
-            <textarea
-                value={newMessage}
-                onChange={handleNewMessageChange}
-                placeholder="Write message..."
-            />
-            <button onClick={handleSendMessage}>Send</button>
-        </div>
-    );
-}
-
-// 앱 컴포넌트
-function App() {
-    return <Chat />;
-}
-
-export default App;
+# Add assistant response to chat history
+st.session_state.messages.append({"role": "assistant", "content": response})
