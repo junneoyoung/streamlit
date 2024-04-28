@@ -1,43 +1,44 @@
-
 import streamlit as st
-import random
-import time
+import requests
 
-st.title("Simple chat")
-
-# # Initialize chat history
-# if "messages" not in st.session_state:
-#     st.session_state.messages = []
-
-# # Display chat messages from history on app rerun
-# for message in st.session_state.messages:
-#     with st.chat_message(message["role"]):
-#         st.markdown(message["content"])
-
-# # Accept user input
-# if prompt := st.chat_input("What is up?"):
-#     # Display user message in chat message container
-#     with st.chat_message("user"):
-#         st.markdown(prompt)
-#     # Add user message to chat history
-#     st.session_state.messages.append({"role": "user", "content": prompt})
-
-# Streamed response emulator
-def response_generator():
-    response = random.choice(
-        [
-            "Hello there! How can I assist you today?",
-            "Hi, human! Is there anything I can help you with?",
-            "Do you need help?",
+def analyze_sentiment(text, api_key, endpoint):
+    url = f"{endpoint}/text/analytics/v3.0/sentiment"
+    headers = {
+        "Ocp-Apim-Subscription-Key": api_key,
+        "Content-Type": "application/json"
+    }
+    payload = {
+        "documents": [
+            {"id": "1", "text": text}
         ]
-    )
-    for word in response.split():
-        yield word + " "
-        time.sleep(0.05)
+    }
+    response = requests.post(url, json=payload, headers=headers)
+    if response.status_code == 200:
+        result = response.json()
+        return result['documents'][0]['sentiment']
+    else:
+        return None
 
-# Display assistant response in chat message container
-with st.chat_message("assistant"):
-    response = st.write_stream(response_generator())
+def main():
+    st.title("Azure Text Analytics API Sentiment Analysis")
+    
+    # Azure Text Analytics API 정보 입력
+    api_key = st.text_input("Enter your Azure API Key:")
+    endpoint = st.text_input("Enter your Azure Text Analytics endpoint:")
+    
+    # 텍스트 입력
+    text = st.text_area("Enter the text to analyze:")
+    
+    # 감정 분석 실행
+    if st.button("Analyze Sentiment"):
+        if api_key and endpoint and text:
+            sentiment = analyze_sentiment(text, api_key, endpoint)
+            if sentiment:
+                st.write(f"Sentiment: {sentiment}")
+            else:
+                st.error("Failed to analyze sentiment. Please check your API key and endpoint.")
+        else:
+            st.error("Please enter your Azure API key, endpoint, and the text to analyze.")
 
-# Add assistant response to chat history
-st.session_state.messages.append({"role": "assistant", "content": response})
+if __name__ == "__main__":
+    main()
