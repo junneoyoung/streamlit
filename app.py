@@ -6,7 +6,7 @@ st.set_page_config(layout="wide")
 
 st.title("돈버는 설문. AI 설문생성.")
 
-client = OpenAI(api_key=st.secrets["api_key"])
+client = OpenAI(api_key=st.secrets["openai"]["api_key"])
 
 if "openai_model" not in st.session_state:
     st.session_state["openai_model"] = "gpt-4"
