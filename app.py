@@ -118,8 +118,8 @@ if 'answer1_age' not in st.session_state:
 if 'answer2_age' not in st.session_state:
     st.session_state.answer2_age = None
 
-surveyId = 'test6'
-surveyId_num = 546
+surveyId = 'test123451'
+surveyId_num = 690
 
 # 페이지 설정: wide 모드로 설정하여 전체 너비를 사용
 st.set_page_config(layout="wide")
@@ -1290,8 +1290,8 @@ if st.session_state.button_clicked:
 
     headers = {
         'accept': 'application/json',
-        'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJjbGllbnRJZCI6Imp1bi55b3VuZy5raW1Ac2suY29tIiwicm9sZXMiOlt7ImF1dGhvcml0eSI6IlJPTEVfQURNSU4iLCJyb2xlX2lkIjoiQURNSU4iLCJyb2xlX25tIjoiUk9MRV9BRE1JTiJ9XSwidXNlcl9pZHgiOjEyLCJ0b2tlblR5cGUiOiJvcmlnaW5hbCIsImp0aSI6Imp1bi55b3VuZy5raW1Ac2suY29tIiwic3ViIjoianVuLnlvdW5nLmtpbUBzay5jb20iLCJpYXQiOjE3MTY4NTg3NjMsImV4cCI6MTcxNjg4MDM2M30.xR_jjFFzZOdW-TGX5gQYX1K81FKkDPF0HkQQgJaRFhODR8HpMH23fbgWW-JF3YyOiJLywLtQ0o-TskNW_ElDxA',
-        'clientId': 'jun.young.kim@sk.com',
+        'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJjbGllbnRJZCI6IjExMTExNDBAc2t0ZWxlY29tLmNvbSIsInJvbGVzIjpbeyJhdXRob3JpdHkiOiJST0xFX1BBUlRORVIiLCJyb2xlX2lkIjoiUEFSVE5FUiIsInJvbGVfbm0iOiJST0xFX1BBUlRORVIifV0sInVzZXJfaWR4Ijo3NSwidG9rZW5UeXBlIjoib3JpZ2luYWwiLCJqdGkiOiIxMTExMTQwQHNrdGVsZWNvbS5jb20iLCJzdWIiOiIxMTExMTQwQHNrdGVsZWNvbS5jb20iLCJpYXQiOjE3MTY4NjcwMDYsImV4cCI6MTcxNjg4ODYwNn0.M27Rk-0FqyKz8T0B7VLjlylOgx6Hm3YVMo41QuB9eGvpkoKvwWJUmaq7vwRctGlzcRXGaz8a5ooAqisq_tJrpg',
+        'clientId': '1111140@sktelecom.com',
     }
 
      # POST 요청 실행
