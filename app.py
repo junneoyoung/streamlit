@@ -334,7 +334,7 @@ if survey_intent and not st.session_state.gpt_response:
                                 item = '성별'
                                 survey_cnt = 2
                                 prompt = f"""
-                                    설문의도: {survey_intent}
+                                    설문의도: {result_value}
                                     아이템: {item}
 
                                     설문의도와 (아이템)과 관련된 최근 사회적 이슈에 대한 설문조사 질문과 답변을 만들어주세요.
@@ -429,7 +429,7 @@ if survey_intent and not st.session_state.gpt_response:
                                 item = '연령'
                                 survey_cnt = 2
                                 prompt = f"""
-                                    설문의도: {survey_intent}
+                                    설문의도: {result_value}
                                     아이템: {item}
 
                                     설문의도와 (아이템)과 관련된 최근 사회적 이슈에 대한 설문조사 질문과 답변을 만들어주세요.
