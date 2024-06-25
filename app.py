@@ -118,8 +118,8 @@ if 'answer1_age' not in st.session_state:
 if 'answer2_age' not in st.session_state:
     st.session_state.answer2_age = None
 
-surveyId = 'test123451'
-surveyId_num = 690
+surveyId = 'kjytest15'
+surveyId_num = 1868
 
 # 페이지 설정: wide 모드로 설정하여 전체 너비를 사용
 st.set_page_config(layout="wide")
@@ -1268,7 +1268,7 @@ if st.session_state.button_clicked:
             "isNew": "Y",
             "actionStts": "I",
             "pageId": "uOcWdgwPIuiLFZzHBqAr",
-            "headTitle": "TEST",
+            "headTitle": survey_title,
             "description": "TEST",
             "bgColor": "",
             "termsId": 0,
