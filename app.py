@@ -1290,8 +1290,8 @@ if st.session_state.button_clicked:
 
     headers = {
         'accept': 'application/json',
-        'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJjbGllbnRJZCI6IjExMTExNDBAc2t0ZWxlY29tLmNvbSIsInJvbGVzIjpbeyJhdXRob3JpdHkiOiJST0xFX1BBUlRORVIiLCJyb2xlX2lkIjoiUEFSVE5FUiIsInJvbGVfbm0iOiJST0xFX1BBUlRORVIifV0sInVzZXJfaWR4Ijo3NSwidG9rZW5UeXBlIjoib3JpZ2luYWwiLCJqdGkiOiIxMTExMTQwQHNrdGVsZWNvbS5jb20iLCJzdWIiOiIxMTExMTQwQHNrdGVsZWNvbS5jb20iLCJpYXQiOjE3MTY4NzA4MzQsImV4cCI6MTcxNjg5MjQzNH0.da5YbkkreY8Pc4ZCw9MUOMSCt0YAtVg2pSewOn5sFAW2G_MM1tAfNhls18Evohimq9qtfX93WPIRIJ2LORzFDQ',
-        'clientId': '1111140@sktelecom.com',
+        'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJjbGllbnRJZCI6Imp1bi55b3VuZy5raW1Ac2t0ZWxlY29tLmNvbSIsInJvbGVzIjpbeyJhdXRob3JpdHkiOiJST0xFX1BBUlRORVIiLCJyb2xlX2lkIjoiUEFSVE5FUiIsInJvbGVfbm0iOiJST0xFX1BBUlRORVIifV0sInVzZXJfaWR4Ijo0NSwidG9rZW5UeXBlIjoib3JpZ2luYWwiLCJqdGkiOiJqdW4ueW91bmcua2ltQHNrdGVsZWNvbS5jb20iLCJzdWIiOiJqdW4ueW91bmcua2ltQHNrdGVsZWNvbS5jb20iLCJpYXQiOjE3MTkyOTAzMzEsImV4cCI6MTcxOTMxMTkzMX0.5qwzXtkuaWzGPeK_SCbBLb7awOaZ2nzypQoQhcsUJQn6AQrQrKmhIque-e6lPPGzdxl2reezV5QHcmScp4GIFA',
+        'clientId': 'jun.young.kim@sktelecom.com',
     }
 
      # POST 요청 실행
